@@ -50,6 +50,7 @@ def process_emoji_row(row):
 
 
 def init():
+    # Normal emoji    
     filename = (
         f"{config.snap_root}/static/emojis.csv"
         if config.is_snap
@@ -62,6 +63,21 @@ def init():
         reader = csv.DictReader(csvfile)
 
         for row in reader:
+            process_emoji_row(row)
+    
+    # Kaomoji
+    kaomoji_filename = (
+        f"{config.snap_root}/static/kaomoji.csv"
+        if config.is_snap
+        else f"{config.flatpak_root}/static/kaomoji.csv"
+        if config.is_flatpak
+        else "static/kaomoji.csv"
+    )
+    
+    with open(kaomoji_filename, newline="") as kaomojicfile:
+        kaomoji_reader = csv.DictReader(kaomojicfile)
+
+        for row in kaomoji_reader:
             process_emoji_row(row)
 
     update_recent_category()
@@ -117,6 +133,7 @@ def get_category_order():
         ("objects", "Objects", "💡"),
         ("symbols", "Symbols", "⁉️"),
         ("flags", "Flags", "🇺🇳"),
+        ("kaomoji", "Kaomoji", "^_^"),
     ]
 
 

@@ -18,7 +18,11 @@ from emote import (
 )
 
 GRID_SIZE = 10
-EMOJIS_PER_ROW = 10
+kaomoji_enabled = True # For testing~
+if kaomoji_enabled:
+    EMOJIS_PER_ROW = 4
+else:
+    EMOJIS_PER_ROW = 10
 
 
 def grouper(iterable, n, fillvalue=None):
@@ -555,12 +559,22 @@ class EmojiPicker(Gtk.Window):
                         sensitive=False,
                     )
                 else:
-                    btn = Gtk.Button(
-                        label=self.get_skintone_char(emoji),
-                        name="emoji_button",
-                        relief=Gtk.ReliefStyle.NONE,
-                    )
-                    btn.connect("event", self.on_emoji_btn_event)
+                    if "kaomoji" not in emoji["keywords"]:
+                        # Normal emoji
+                        btn = Gtk.Button(
+                            label=self.get_skintone_char(emoji),
+                            name="emoji_button",
+                            relief=Gtk.ReliefStyle.NONE,
+                        )
+                        btn.connect("event", self.on_emoji_btn_event)
+                    else:
+                        # Kaomoji, use another css id
+                        btn = Gtk.Button(
+                            label=self.get_skintone_char(emoji),
+                            name="kaomoji_button",
+                            relief=Gtk.ReliefStyle.NONE,
+                        )
+                        btn.connect("event", self.on_emoji_btn_event)
 
                 if row == 1 and column == 1:
                     self.first_emoji_widget = btn

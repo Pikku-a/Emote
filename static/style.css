@@ -7,7 +7,14 @@
 }
 
 #emoji_button {
-  font-size: 24px;
+  font-size: 20px; /*originally 24px*/
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 7px;
+  padding-right: 7px;
+}
+#kaomoji_button { /*maybe*/
+  font-size: 12px;
   padding-top: 7px;
   padding-bottom: 7px;
   padding-left: 7px;
