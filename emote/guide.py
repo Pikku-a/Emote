@@ -12,7 +12,7 @@ class Guide(Gtk.Dialog):
     def __init__(self):
         Gtk.Dialog.__init__(
             self,
-            title="Emote Guide",
+            title="Hymio Guide",
             window_position=Gtk.WindowPosition.CENTER,
             resizable=False,
         )
@@ -34,7 +34,7 @@ class Guide(Gtk.Dialog):
 
         background = Gtk.Label()
         background.set_markup(
-            "Emote runs in the background and automatically starts when you log in."
+            "Hymio runs in the background and automatically starts when you log in."
         )
         background.set_line_wrap(True)
         background.set_alignment(0, 0.5)

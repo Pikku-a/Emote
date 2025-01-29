@@ -1,11 +1,12 @@
-# <span><img width="24" height="24" src="https://github.com/tom-james-watson/Emote/blob/master/static/logo.svg"></span> Emote
+# <span><img width="24" height="24" src="https://github.com/Pikku-a/Hymio/blob/kaomojis/static/logo.svg"></span> Hymio
 
-Emote is a modern emoji picker for Linux 🚀. Written in GTK3, Emote is lightweight and stays out of your way.
+Hymio is a modern emoji and kaomoji picker for Linux 🚀, based in [Emote](https://github.com/tom-james-watson/Emote). Written in GTK3, Hymio is lightweight and stays out of your way.
 
 Launch the emoji picker with the configurable keyboard shortcut `Ctrl+Alt+E`, and select one or more emojis to have them be automatically pasted into your currently focused app.
 
 - 🍾 Built as a popup: quick invocation, and disappears when not needed, does not stay as a standalone window
 - 🫠 Provide a large and up-to-date list of emojis retrieved from [openmoji.org](https://openmoji.org/)
+- o(>ω<)o Kaomoji/Emoticon support
 - 🧠 Shows the last used emojis by default
 - 🔎 Search text box automatically focused and ready to type when invoked
 - ⌨️ Can use shortcuts to navigates and select emojis
@@ -13,14 +14,16 @@ Launch the emoji picker with the configurable keyboard shortcut `Ctrl+Alt+E`, an
 
 ℹ️ Note:
 
-- ⚡️ Emote [shows up faster](https://github.com/tom-james-watson/Emote/issues/54) when invoked using the built-in keyboard shortcut (`Ctrl+Alt+E` by default), than when using a manually registered keyboard shortcut.
-- 🪟 Emote under Wayland cannot automatically paste the emoji into other apps, and also requires manual registering of a global keyboard shortcut - [Hotkey In Wayland](https://github.com/tom-james-watson/Emote/wiki/Hotkey-In-Wayland). This is due to intentional restrictions in the design of Wayland itself.
+- ⚡️ Hymio [shows up faster](https://github.com/tom-james-watson/Emote/issues/54) when invoked using the built-in keyboard shortcut (`Ctrl+Alt+E` by default), than when using a manually registered keyboard shortcut.
+- 🪟 Hymio under Wayland cannot automatically paste the emoji into other apps, and also requires manual registering of a global keyboard shortcut - [Hotkey In Wayland](https://github.com/tom-james-watson/Emote/wiki/Hotkey-In-Wayland). This is due to intentional restrictions in the design of Wayland itself.
 
 <p align="center">
-  <img width="500" src="https://raw.githubusercontent.com/tom-james-watson/Emote/master/images/screenshot.png">
+  <img width="500" src="https://github.com/Pikku-a/Hymio/blob/kaomojis/images/screenshot.png">
 </p>
 
 ## 📥️ Installation
+
+The following installation instructions are for Emote, I will update this when Hymio is available to download.
 
 Emote can be installed using various popular package managers:
 
@@ -46,13 +49,13 @@ sudo snap install emote
 
 ### 🐧 Unofficial installation methods
 
-An unofficial build of Emote is also available in the AUR : https://aur.archlinux.org/packages/emote.
+An unofficial build of Hymio is also available in the AUR : https://aur.archlinux.org/packages/emote.
 
 ## 📖 Guide
 
 ### 🚀 Launching
 
-Emote runs in the background and automatically starts when you log in.
+Hymio runs in the background and automatically starts when you log in.
 
 The emoji picker can be opened with either the keyboard shortcut, or by clicking the app icon again.
 
@@ -167,7 +170,7 @@ Build the flatpak package and install it locally:
 make flatpak
 ```
 
-Run Emote with flatpak (can also be done from the desktop entry):
+Run Hymio with flatpak (can also be done from the desktop entry):
 
 ```bash
 flatpak run com.tomjwatson.Emote
@@ -201,7 +204,7 @@ Flathub builds can be monitored at [buildbot.flathub.org/#/apps/com.tomjwatson.E
 
 To update the version published to Flathub:
 
-1. In the [`com.tomjwatson.Emote.yml` manifest](https://github.com/flathub/com.tomjwatson.Emote/blob/master/com.tomjwatson.Emote.yml#L66) of the flathub/com.tomjwatson.Emote repo: change the commit hash to the commit of the Emote repository you want to publish
+1. In the [`com.tomjwatson.Emote.yml` manifest](https://github.com/flathub/com.tomjwatson.Emote/blob/master/com.tomjwatson.Emote.yml#L66) of the flathub/com.tomjwatson.Emote repo: change the commit hash to the commit of the Hymio repository you want to publish
 2. Flathub checks the GitHub repo every few minutes, and will start a build if a change has been detected. If the build succeeds, it is published automatically after 3 hours. You can use the [Flathub BuildBot web UI](https://buildbot.flathub.org/#/apps/com.tomjwatson.Emote) to monitor, start or publish builds manually (click the Publish button at the top of a successful build page).
 
 More documentation for maintaining a Flathub package is available at [docs.flathub.org/docs/for-app-authors/maintanance](https://docs.flathub.org/docs/for-app-authors/maintanance#buildbot).
@@ -245,3 +248,5 @@ snapcraft push --release=edge <path to .snap>
 ## 🤝 Attribution
 
 Emoji data is sourced from https://raw.githubusercontent.com/hfg-gmuend/openmoji/master/data/openmoji.csv which is compiled by the lovely people at https://openmoji.org 🫠.
+
+Hymio is based on Emote: https://github.com/tom-james-watson/Emote

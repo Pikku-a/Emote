@@ -1,8 +1,8 @@
 [Desktop Entry]
 Name=Emote
 Type=Application
-GenericName=Emoji picker
-Comment=Modern popup emoji picker
+GenericName=Emoji & kaomoji picker
+Comment=Modern popup emoji & kaomoji picker
 Exec=emote
 Categories=Utility;GTK;
 Keywords=emoji,smiley,emoticon,icon
