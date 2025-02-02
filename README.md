@@ -1,6 +1,6 @@
 # <span><img width="24" height="24" src="https://github.com/Pikku-a/Hymio/blob/kaomojis/static/logo.svg"></span> Hymio
 
-Hymio is a modern emoji and kaomoji picker for Linux 🚀, based in [Emote](https://github.com/tom-james-watson/Emote). Written in GTK3, Hymio is lightweight and stays out of your way.
+Hymio is a modern emoji and kaomoji picker for Linux 🚀, based in [Emote](https://github.com/tom-james-watson/Emote). Made using GTK3, Hymio is lightweight and stays out of your way.
 
 Launch the emoji picker with the configurable keyboard shortcut `Ctrl+Alt+E`, and select one or more emojis to have them be automatically pasted into your currently focused app.
 
