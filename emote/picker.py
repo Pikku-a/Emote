@@ -18,12 +18,11 @@ from emote import (
 )
 
 GRID_SIZE = 10
-kaomoji_enabled = True # For testing~
-if kaomoji_enabled:
+if user_data.load_kaomoji_preference(): # If kaomoji enabled
     EMOJIS_PER_ROW = 4
 else:
     EMOJIS_PER_ROW = 10
-
+# This doesn't update immediately right now.
 
 def grouper(iterable, n, fillvalue=None):
     args = [iter(iterable)] * n
@@ -34,7 +33,7 @@ class EmojiPicker(Gtk.Window):
     def __init__(self, open_time, update_accelerator, update_theme, show_welcome):
         Gtk.Window.__init__(
             self,
-            title="Emote",
+            title="Hymio",
             window_position=Gtk.WindowPosition.CENTER,
             resizable=False,
             deletable=False,
@@ -675,3 +674,5 @@ class EmojiPicker(Gtk.Window):
         cb.set_text(content, -1)
         if config.is_wayland:
             os.system(f'wl-copy "{content}"')
+
+

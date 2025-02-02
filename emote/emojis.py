@@ -123,19 +123,41 @@ def get_category_order():
     Returned as arrays of tuples in the form
     (<category name>, <category display name>, <category_image>)
     """
-    return [
-        ("recent", "Recently Used", "🕙"),
-        ("smileys-people", "Smileys & People", "🙂"),
-        ("animals-nature", "Animals & Nature", "🐯"),
-        ("food-drink", "Food & Drink", "🍔"),
-        ("activities", "Activities", "⚽"),
-        ("travel-places", "Travel & Places", "✈️"),
-        ("objects", "Objects", "💡"),
-        ("symbols", "Symbols", "⁉️"),
-        ("flags", "Flags", "🇺🇳"),
-        ("kaomoji", "Kaomoji", "^_^"),
-    ]
-
+    if user_data.load_emoji_preference() and user_data.load_kaomoji_preference():
+        return [
+            ("recent", "Recently Used", "🕙"),
+            ("smileys-people", "Smileys & People", "🙂"),
+            ("animals-nature", "Animals & Nature", "🐯"),
+            ("food-drink", "Food & Drink", "🍔"),
+            ("activities", "Activities", "⚽"),
+            ("travel-places", "Travel & Places", "✈️"),
+            ("objects", "Objects", "💡"),
+            ("symbols", "Symbols", "⁉️"),
+            ("flags", "Flags", "🇺🇳"),
+            ("kaomoji", "Kaomoji", "^_^"),
+        ]
+    elif user_data.load_emoji_preference() and not user_data.load_kaomoji_preference():
+        return [
+            ("recent", "Recently Used", "🕙"),
+            ("smileys-people", "Smileys & People", "🙂"),
+            ("animals-nature", "Animals & Nature", "🐯"),
+            ("food-drink", "Food & Drink", "🍔"),
+            ("activities", "Activities", "⚽"),
+            ("travel-places", "Travel & Places", "✈️"),
+            ("objects", "Objects", "💡"),
+            ("symbols", "Symbols", "⁉️"),
+            ("flags", "Flags", "🇺🇳"),
+        ]
+    elif not user_data.load_emoji_preference() and user_data.load_kaomoji_preference():
+        return [
+            ("recent", "Recently Used", "🕙"),
+            ("kaomoji", "Kaomoji", "^_^"), # Add more categories
+        ]
+    elif not user_data.load_emoji_preference() and not user_data.load_kaomoji_preference():
+        return [
+            ("recent", "Recently Used", "🕙"),
+            # Add text like "Why did you disable everything dude."
+        ]
 
 def get_emojis_by_category():
     return emojis_by_category

@@ -5,7 +5,7 @@ import shelve
 from emote import emojis, config
 
 DATA_DIR = (
-    os.path.join(Path.home(), ".local/share/Emote")
+    os.path.join(Path.home(), ".local/share/Hymio")
     if not config.is_flatpak
     else os.path.join(Path.home(), f".var/app/{config.app_id}/data")
 )
@@ -68,6 +68,8 @@ SKINTONE_INDEX = "skintone_index"
 DEFAULT_SKINTONE_INDEX = 0
 SKINTONES = ["✋", "✋🏻", "✋🏼", "✋🏽", "✋🏾", "✋🏿"]
 
+ENABLED_EMOJIS = "enabled_emojis"
+ENABLED_KAOMOJIS = "enabled_kaomojis"
 
 # Ensure the data dir exists
 os.makedirs(DATA_DIR, exist_ok=True)
@@ -134,3 +136,20 @@ def load_skintone_index():
 def update_skintone_index(skintone):
     with shelve.open(SHELVE_PATH) as db:
         db[SKINTONE_INDEX] = skintone
+
+# Emoji and Kaomoji enable/disable
+def save_emoji_preference(value):
+    with shelve.open(SHELVE_PATH) as db:
+        db[ENABLED_EMOJIS] = int(value)
+
+def save_kaomoji_preference(value):
+    with shelve.open(SHELVE_PATH) as db:
+        db[ENABLED_KAOMOJIS] = int(value)
+
+def load_emoji_preference():
+    with shelve.open(SHELVE_PATH) as db:
+        return bool(db.get(ENABLED_EMOJIS, 1))
+
+def load_kaomoji_preference():
+    with shelve.open(SHELVE_PATH) as db:
+        return bool(db.get(ENABLED_KAOMOJIS, 1))
