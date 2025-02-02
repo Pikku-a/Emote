@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 import shelve
 
-from emote import emojis, config, picker
+from emote import emojis, config#, picker
 
 DATA_DIR = (
     os.path.join(Path.home(), ".local/share/Hymio")
