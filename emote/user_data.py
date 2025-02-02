@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 import shelve
 
-from emote import emojis, config
+from emote import emojis, config, picker
 
 DATA_DIR = (
     os.path.join(Path.home(), ".local/share/Hymio")
@@ -141,10 +141,15 @@ def update_skintone_index(skintone):
 def save_emoji_preference(value):
     with shelve.open(SHELVE_PATH) as db:
         db[ENABLED_EMOJIS] = int(value)
+        #emojis.get_category_order()
+        #picker.EmojiPicker.init_category_selectors()
+        # Maybe save a variable like "just changed setting" and use it in picker.py? To either call init_category_selectors or restart
 
 def save_kaomoji_preference(value):
     with shelve.open(SHELVE_PATH) as db:
         db[ENABLED_KAOMOJIS] = int(value)
+        #picker.EmojiPicker.init_category_selectors()
+        # If kaomoji is disabled, remove them from recent
 
 def load_emoji_preference():
     with shelve.open(SHELVE_PATH) as db:
